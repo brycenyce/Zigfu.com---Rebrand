@@ -300,13 +300,13 @@ ol.thumb-grid li a img {
 }
 #leftCol {
 	width: 180px;
-	height: 480px;
+	//height: 480px;
 	float: left;
 	margin-right: 10px;
 	padding: 10px 10px;
 	background-color: #93d7fb;
 	border-top-left-radius: 8px;
-	border-top-right-radius: 8px;
+	border-bottom-left-radius: 8px;
 }
 #listCol .listSubClass a {
 	color: #333;
