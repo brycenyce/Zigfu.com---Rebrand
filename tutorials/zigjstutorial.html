@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>ZigJS Tutorial</title>
+<script type="text/javascript" src='google-code-prettify/prettify.js'></script>
+<link type='text/css' rel="Stylesheet" href='google-code-prettify/prettify.css' />
+<style>
+    body 
+    {
+        width: 800px;
+    }
+    pre.prettyprint 
+    {
+        background-color: #f8f8f8;
+        border: 1px solid #dddddd;
+        border-radius: 4px;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -ms-border-radius: 4px;
+        padding: 10px;
+    }
+</style>
+</head>
+<body onload='prettyPrint()'>
+
+<h1>ZigJS Tutorial</h1>
+<h2>Step 1: Getting Started</h2>
+<p>Make sure you have the following prerequisites: </p>
+<ul>
+    <li>ZigJS Browser Plugin</li>
+    <li>Microsoft Kinect or Asus Wavi Xtion</li>
+</ul>
+<h2>Step 2: Hello World</h2>
+We're going to make our first app, which will be useless except as a test to make sure all the right things are talking to each other in the background.  
+This app is a blank page that will simply display an alert when the Zig plugin loads.
+Create an html file with the following content:
+
+<pre class='prettyprint'><code class='language-html'>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;User Radar&lt;/title&gt;
+&lt;script src='http://motionos.com/zigjs/beta/zig.js'&gt;&lt;/script&gt;
+
+&lt;script&gt;
+
+    function ZigPluginLoaded() {
+        alert('Hello Motion World!');
+    }
+
+&lt;/script&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;!-- ZigJS plugin --&gt;
+&lt;div id=&quot;pluginContainer&quot;&gt;
+  &lt;object id=&quot;ZigPlugin&quot; type=&quot;application/x-zig&quot; width=&quot;0&quot; height=&quot;0&quot;&gt;
+    &lt;param name=&quot;onload&quot; value=&quot;ZigPluginLoaded&quot; /&gt;
+  &lt;/object&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+<p>
+The included script from motionos.com is zig.js, which provides all the bindings you'll need to interact with the Zig browser plugin.  
+That script activates the plugin object, which calls the <code>ZigPluginLoaded</code> function upon finishing loading.  Note that you don't have to have an onload attribute for the plugin
+in general.  It's a good way of testing the basic functionality of the plugin, and for doing something different on your site based on whether or not the user has the plugin installed.
+</p>
+<h2>Step 3: User Radar Sample App</h2>
+<p>
+Now let's go ahead and make something that's actually useful! 
+This will be the user radar, which will have little dots that move around inside of a box to indicate where the users are in the room.  Ok, so maybe it's not the most useful thing,
+but it's an important component for a number of applications and should be a good introduction to the zigfu object model, which is used throughout the entire ZDK.  
+</p><p>
+First things first, comment out the alert; it's obnoxious and doesn't deserve to be part of this new and improved sample.  Ok, now l    et's start with the box.
+We'll code up the user radar using a div for the box, and have some JavaScript code that creates a div for each dot.  Add the following code inside the head of the HTML:
+</p>
+<pre class='prettyprint'><code class='language-html'>&lt;style&gt;
+    div#radar 
+    {
+        width: 400px;
+        height: 400px;
+        border: 1px solid black;
+    }
+&lt;/style&gt;
+
+</code></pre>
+
+<p>
+and the following code to the body.  It doesn't matter whether it goes before or after the div that contains the plugin:
+</p>
+
+<pre class='prettyprint'><code class='language-html'>&lt;div id='radar'&gt;&lt;/div&gt;
+</code></pre>
+
+
+<p>
+This makes the box (the div called 'radar') 400 x 400 pixels (set arbitrarily) and gives it a border so you can see where it is.
+
+We'll receive events from the <code>zig</code> object, and for the <code>onnewuser</code> callback, we'll instantiate an object with that class and stick it in the box.
+Then each time there's new data from the Kinect, there will be an <code>onupdatedata</code> callback, and in that callback we'll move the user to the appropriate position on the screen.
+But first things first, let's get set up with receiving callbacks from the <code>zig</code> object and make sure that the callbacks are being run.  
+Edit the <code>ZigPluginLoaded</code> function to look like this:
+</p>
+
+<pre class='prettyprint'><code class='language-js'>function ZigPluginLoaded() {
+    var plugin = document.getElementById(&quot;ZigPlugin&quot;);
+    zig.init(plugin);
+    var radardiv = document.getElementById('radar');
+
+    // The radar object will respond to events from the 
+    // zig object and move the dots around accordingly.
+    // It is also responsible for creating and destroying 
+    // the dots when users are added and removed.
+    // Functions onnewuser(), onlostuser(), and ondataupdate() 
+    // are called by the zig object when those things happen.
+    var radar = {
+        onnewuser: function (user) {
+            console.log('running onnewuser in radar');
+        },
+        onlostuser: function (user) {
+            console.log('running onlostuser in radar');
+        },
+        ondataupdate: function (zigdata) {
+
+        }
+    };
+    // Add the radar object as a listener to the zig object, so that 
+    // the zig object will call the radar object's callback functions.
+    zig.addListener(radar);
+}
+
+</code></pre>
+<p>At this point, the file in its entirety should look like this:
+</p>
+
+<pre class='prettyprint'><code class='language-html'>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;User Radar&lt;/title&gt;
+&lt;script src='ZigJS/new/zig.js'&gt;&lt;/script&gt;
+
+&lt;script&gt;
+
+    function ZigPluginLoaded() {
+        var plugin = document.getElementById(&quot;ZigPlugin&quot;);
+        zig.init(plugin);
+        var radardiv = document.getElementById('radar');
+
+        // The radar object will respond to events from the 
+        // zig object and move the dots around accordingly.
+        // It is also responsible for creating and destroying 
+        // the dots when users are added and removed.
+        // Functions onnewuser(), onlostuser(), and ondataupdate() 
+        // are called by the zig object when those things happen.
+        var radar = {
+            onnewuser: function (user) {
+                console.log('running onnewuser in radar');
+            },
+            onlostuser: function (user) {
+                console.log('running onlostuser in radar');
+            },
+            ondataupdate: function (zigdata) {
+
+            }
+        };  
+        // Add the radar object as a listener to the zig object, so that 
+        // the zig object will call the radar object's callback functions.
+        zig.addListener(radar);
+    }
+
+&lt;/script&gt;
+
+&lt;style&gt;
+    div#radar 
+    {
+        width: 400px;
+        height: 400px;
+        border: 1px solid black;
+        position: relative;
+        overflow: hidden;
+    }
+&lt;/style&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id='radar'&gt;&lt;/div&gt;
+
+&lt;!-- ZigJS plugin --&gt;
+&lt;div id=&quot;pluginContainer&quot;&gt;
+  &lt;object id=&quot;ZigPlugin&quot; type=&quot;application/x-zig&quot; width=&quot;0&quot; height=&quot;0&quot;&gt;
+    &lt;param name=&quot;onload&quot; value=&quot;ZigPluginLoaded&quot; /&gt;
+  &lt;/object&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>
+To check if this works, open the html file in a browser and open a JavaScript console.  
+We'll use the log messages to see whether the radar object's callbacks are being called when they should be.  
+In Google Chrome on Windows, you can open a JavaScript console by hitting F12.  Now, with the console open, 
+go to a place where the sensor will be able to see you.  The sensor only has about a 45 horizontal field of view, so make sure you stay within that.
+Also, the sensor is far-sighted and doesn't have reading glasses, so you'll have to stay at least three or four feet from the sensor for it to detect you.
+When the sensor first detects a user, the console should look something like this:
+</p>
+<pre>Zig: inited
+Zig: New user: 3
+running onnewuser in radar
+</pre>
+<p>
+The last line is the log message that you just put into the radar object's <code>onnewuser</code> function.  The first two lines are debug messages from the <code>zig</code> object.  
+You can disable debug messages from the <code>zig</code> object by including <code>zig.verbose(false)</code> after <code>zig.init()</code>, although
+it's generally a good idea to leave the messages in until you're ready to release your app.
+</p>
+<p>
+If you do see the New User message from the <code>zig</code> object, but 
+not the <code>onnewuser</code> message, then for some reason, <code>onnewuser</code> is not being called.  
+Double-check that the spelling of the functions is correct, because if it's not, the code will simply fail silently.
+If you don't see anything in the console, then reload the page and try again ... if you still don't see it, then for some reason the Zig plugin isn't running. 
+See our <a href='#'>Troubleshooting</a> page for more help.
+</p>
+<p>
+Now cover the red glowy part of the sensor with your hand for about ten seconds so it can't see you.  You should see the following messages in the console:
+</p>
+
+<pre>Zig: Lost user: 3
+running onlostuser in radar
+</pre>
+
+<p>
+Now that the callback structure has been set up, the next step is creating the dot that will go inside the box to represent a user.
+We want to create a new dot each time a user is found, and destroy the dot when the user is lost.  
+We also want the dots to move around correctly, but let's get them creating and destroying correctly first.
+Since the user dots should all look the same, create a css class called <code>user</code> that we'll add to all the objects that we create in the JavaScript code.  
+</p>
+
+<pre class='prettyprint'><code class='language-css'>div.user 
+{
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+}
+</code></pre>
+
+<p>
+Now, let's add the code that creates and destroys the dots.  One of the cool things about the 
+zigfu JavaScript API is that each <code>user</code> object supplied by the <code>zig</code> object persists
+until the user is lost.  This means that we can add properties and methods to <code>user</code> objects dynamically.
+In this case, an elegant way of associating a div with each user is
+to add a reference to a user div as a property of the respective <code>user</code> object.
+</p>
+
+</body>
+</html>

@@ -1,0 +1,420 @@
+/*--------------------------
+
+CSS by Bryce Tucker
+
+--------------------------*/
+html, body, h1, h2, h3, h4, h5, h6, p {
+	margin: 0;
+	padding: 0;
+}
+body {
+	
+}
+#wrapper {
+	width: 100%;
+}
+#header {
+	width: 960px;
+	height: 150px;
+	margin: 0px auto;
+}
+#logo {
+	width: 250px;
+	height: 140px;
+	margin-right: 10px;
+	margin-top: 10px;
+	float: left;
+}
+#logo img {
+	margin-top: 25px;
+	margin-left: 20px;
+}
+#links {
+	width: 700px;
+	height: 140px;
+	float: left;
+	margin-top: 10px;
+}
+#links ul {
+	margin-top: 45px;
+}
+/* links style */
+ul.links-tabs li {
+	float: left;
+	margin: 0 10px 0 0;
+	padding: 0 10px 0 0;
+	border-right: 1px dashed rgba(0,0,0,0.3);
+}
+ul.links-tabs li:last-child {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+ul.links-tabs li a {	
+	display: block;
+	float: left;
+	color: #000;
+	font-family: 'Open Sans';
+	text-decoration: none;
+	font-size: 18px;
+	font-weight: 800;
+} 
+ul.links-tabs li a:hover {
+	text-decoration: none;
+	background-color: #000;
+	color: #FFF;
+}
+ul.links-tabs li a:hover span {
+	text-decoration: none;
+}
+ul.links-tabs li a span {
+	display: block;
+	margin-top: 2px;
+	font-size: 13px;
+	font-style: italic;
+	font-family: 'Georgia';
+	color: #FFF;
+	font-weight: normal;
+}
+/* end links style */
+#container {
+	width: 960px;
+	height: 100%;
+	margin: 10px auto;
+}
+#downloadZDK {
+	
+}
+#downloadZDK h1 {
+	font-family: 'Open Sans';
+	text-align: center;
+	font-size: 2.5em;
+	text-transform: uppercase;
+}
+#downloadZDK h2 {
+	font-family: 'Georgia';
+	font-style: italic;
+	text-align: center;
+	font-weight: normal;
+	font-size: 16px;
+}
+#downloadZDK .downloadButton {
+	width: 400px;
+	height: 75px;
+	margin: 10px auto;
+	cursor: pointer;
+	text-decoration: none;
+	border-radius: 6px;
+	border: 1px solid #11527f;
+	box-shadow: inset 0px 2px 5px rgba(0,0,0,0.4), inset 0px -2px -2px rgba(255,255,255,0.3);
+	background: #7db9e8; /* Old browsers */
+	background: -moz-linear-gradient(top,  #7db9e8 0%, #1e5799 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7db9e8), color-stop(100%,#1e5799)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #7db9e8 0%,#1e5799 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #7db9e8 0%,#1e5799 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #7db9e8 0%,#1e5799 100%); /* IE10+ */
+	background: linear-gradient(top,  #7db9e8 0%,#1e5799 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#1e5799',GradientType=0 ); /* IE6-9 */
+	background-color: #000;
+}
+#downloadZDK .downloadButton p {
+	color: #FFF;
+	padding-top: 20px;
+	text-align: center;
+	font-size: 24px;
+	font-family: 'Open Sans';
+	font-weight: 800;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+}
+#downloadZDK p {
+	font-family: 'Arial';
+	font-weight: normal;
+	color: #333;
+	font-size: 12px;
+	text-align: center;
+}
+#features {
+	width: 960px;
+	height: 100%;
+	margin: 0px auto;
+}
+#features .featureHeader {
+	font-family: 'Open Sans';
+	font-weight: 800;
+	color: #EF3A29;
+	text-shadow: 1px 1px 0px #FFF, 2px 2px 0px #B52821;
+	padding-left: 35px;
+}
+#orderedList {
+	width: 100%;
+	height: 400px;
+	border-bottom: 1px dashed rgba(0,0,0,0.5);
+}
+ol.thumb-grid li {
+	float: left;
+	width: 18%;
+	margin: 0 5% 5% 0;
+	margin-left: 20px;
+}
+ol.thumb-grid li:nth-child(4n) {
+	margin-right: 0;
+}
+ol.thumb-grid li a img {
+	width: 100%;
+	border-radius: 6px;
+}
+#descriptions {
+	margin-top: 50px;
+}
+.getStarted {
+	width: 900px;
+	background-color: rgba(0,0,0,0.2);
+	border-radius: 6px;
+	padding: 10px;
+	margin: 0px auto;
+}
+.getStarted h2 {
+	font-family: 'Open Sans';
+	font-weight: 800;
+}
+.getStarted p {
+	font-family: 'Arial';
+	font-size: 14px;
+}
+.consistentAPI {
+	width: 900px;
+	background-color: rgba(0,0,0,0.2);
+	border-radius: 6px;
+	padding: 10px;
+	margin: 0px auto;
+	margin-top: 50px;
+}
+.consistentAPI h2 {
+	font-family: 'Open Sans';
+	font-weight: 800;
+}
+.consistentAPI p {
+	font-family: 'Arial';
+	font-size: 14px;
+}
+.performance {
+	width: 900px;
+	background-color: rgba(0,0,0,0.2);
+	border-radius: 6px;
+	padding: 10px;
+	margin: 0px auto;
+	margin-top: 50px;
+}
+.performance h2 {
+	font-family: 'Open Sans';
+	font-weight: 800;
+}
+.performance p {
+	font-family: 'Arial';
+	font-size: 14px;
+}
+.anyPlatform {
+	width: 900px;
+	background-color: rgba(0,0,0,0.2);
+	border-radius: 6px;
+	padding: 10px;
+	margin: 0px auto;
+	margin-top: 50px;
+}
+.anyPlatform h2 {
+	font-family: 'Open Sans';
+	font-weight: 800;
+}
+.anyPlatform p {
+	font-family: 'Arial';
+	font-size: 14px;
+}
+.kinectBrow {
+	width: 900px;
+	background-color: rgba(0,0,0,0.2);
+	border-radius: 6px;
+	padding: 10px;
+	margin: 0px auto;
+	margin-top: 50px;
+}
+.kinectBrow h2 {
+	font-family: 'Open Sans';
+	font-weight: 800;
+}
+.kinectBrow p {
+	font-family: 'Arial';
+	font-size: 14px;
+}
+.unity3d {
+	width: 900px;
+	background-color: rgba(0,0,0,0.2);
+	border-radius: 6px;
+	padding: 10px;
+	margin: 0px auto;
+	margin-top: 50px;
+}
+.unity3d h2 {
+	font-family: 'Open Sans';
+	font-weight: 800;
+}
+.unity3d p {
+	font-family: 'Arial';
+	font-size: 14px;
+}
+.flash {
+	width: 900px;
+	background-color: rgba(0,0,0,0.2);
+	border-radius: 6px;
+	padding: 10px;
+	margin: 0px auto;
+	margin-top: 50px;
+}
+.flash h2 {
+	font-family: 'Open Sans';
+	font-weight: 800;
+}
+.flash p {
+	font-family: 'Arial';
+	font-size: 14px;
+}
+.html5 {
+	width: 900px;
+	background-color: rgba(0,0,0,0.2);
+	border-radius: 6px;
+	padding: 10px;
+	margin: 0px auto;
+	margin-top: 50px;
+}
+.html5 h2 {
+	font-family: 'Open Sans';
+	font-weight: 800;
+}
+.html5 p {
+	font-family: 'Arial';
+	font-size: 14px;
+}
+#tutorialCont {
+	width: 960px;
+	height: 100%;
+	margin: 0px auto;
+}
+#leftCol {
+	width: 180px;
+	height: 480px;
+	float: left;
+	margin-right: 10px;
+	padding: 10px 10px;
+	background-color: #93d7fb;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+}
+#listCol .listSubClass a {
+	color: #333;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+	text-transform: uppercase;
+}
+#listCol .listSubClass a:hover {
+	color: #666;
+	text-decoration: underline;
+}
+#leftCol ul {
+	padding-left: 10px!important;
+	list-style-type: none;
+}
+#leftCol li {
+	font-family: 'Open Sans';
+	font-weight: 800;
+	text-decoration: none;
+	padding-bottom: 10px;
+}
+#leftCol li a {
+	color: #FFF;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
+	text-decoration: none;
+}
+#leftCol li a:hover {
+}
+#leftCol h2 {
+	font-family: 'Open Sans';
+	font-weight: 800;
+	color: #23495d;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
+	font-size: 1em;
+
+}
+#leftCol p {
+	font-family: 'Arial';
+	font-weight: bold;
+	color: #FFF;
+	text-align: center;
+	padding-top: 160px;	
+}
+#rightCol {
+	width: 750px;
+	height: 500px;
+	float: left;
+}
+#rightCol h1 {
+	font-family: 'Open Sans';
+	font-weight: 800;
+	font-size: 2.5em;
+	text-align: center;
+}
+#rightCol h2 {
+	font-family: 'Georgia';
+	font-style: italic;
+	color: #555;
+	font-weight: 200;
+	font-size: 1.25em;
+	text-align: center;
+	padding-bottom: 10px;
+	margin-top: -10px;
+}
+#rightCol p {
+	font-family: 'Georgia';
+	font-weight: normal;
+	color: #555;
+	text-align: center;
+}
+#rightCol hr {
+	width: 740px;
+	margin-top: 10px;
+	border: 1px dashed rgba(0,0,0,0.3);
+}
+#html5desc {
+	width: 245px;
+	height: 250px;
+	margin-right: 5px;
+	//background-color: rgba(0,0,0,0.3);
+	float: left;
+	border-right: 1px dashed rgba(0,0,0,0.4);
+	margin-bottom: 20px;
+}
+#jsdesc {
+	width: 245px;	
+	height: 250px;
+	margin-right: 5px;
+	float: left;
+	border-right: 1px dashed rgba(0,0,0,0.4);
+	//background-color: rgba(0,0,0,0.3);
+}
+#flashdesc {
+	width: 245px;
+	height: 250px;
+	float: left;
+	//background-color: rgba(0,0,0,0.3);
+}
+#footer {
+	width: 100%;
+	height: 200px;
+	bottom: 0;
+	margin: 10px auto;
+	background-color: #000;
+}
+#footer p {
+	font-family: 'Arial';
+	font-weight: bold;
+	color: #FFF;
+	text-align: center;
+	padding-top: 40px;	
+}

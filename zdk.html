@@ -1,0 +1,178 @@
+<html>
+
+<head>
+
+<title>Zigfu // Get the ZDK</title>
+
+<link rel="stylesheet" type="text/css" href="style.css" />
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+
+<script>
+
+	$(document).ready(function() {
+		$('.downloadButton').click(function() {
+			window.location=$(this).find('a').attr('href');
+			return false;
+		});
+	});
+
+</script>
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+	<div id="header">
+
+		<div id="logo"><a href="#"><img src="i/logo.png" /></a></div>
+
+		<div id="links">
+
+			<ul class="links-tabs">
+				
+				<li><a href="#">HOME<span>Lost?</span></a></li>
+
+				<li><a href="zdk.html">ZDK<span>Developer?</span></a></li>
+
+				<li><a href="docs.html">DOCS<span>Documentation</span></a></li>
+
+				<li><a href="tutorials.html">TUTS<span>Tutorials</span></a></li>
+
+				<li><a href="#">NEWS<span>What're we up to?</span></a></li>
+
+				<li><a href="about.html">ABOUT<span>Who are we?</span></a></li>
+
+			</ul>
+
+		</div>
+
+	</div>
+
+	<div id="container">
+	
+		<div id="downloadZDK">
+			
+			<h1>Introducing the ZDK!</h1>
+
+			<h2>The best way to make applications for the Kinect</h2>
+
+			<div class="downloadButton">
+
+				<a href="javascript:alert('Downloading...')"></a><p>DOWNLOAD!</p>
+
+			</div>
+
+			<p>46.4 MB | Ver 1.9c</p>
+
+		</div>
+
+		<div id="features">
+
+			<h2 class="featureHeader">FEATURES</h2>
+			
+			<div id="orderedList">
+
+				<ol class="thumb-grid group">
+
+					<li><a href="#getStarted"><img src="i/temp-img.png" alt="Get Started!"></a></li>
+
+					<li><a href="#consistentApi"><img src="i/temp-img.png" alt="Consistent API"></a></li>
+
+					<li><a href="#performance"><img src="i/temp-img.png" alt="Performance"></a></li>
+
+					<li><a href="#anyPlatform"><img src="i/temp-img.png" alt="That's right, ANY platform"></a></li>
+
+					<li><a href="#kinectBrow"><img src="i/temp-img.png"  alt="Kinect in the browser?  -Yes."></a></li>
+
+					<li><a href="#unity3d"><img src="i/temp-img.png"  alt="Zigfu + Unity3D = Motion-controlled Games!"></a></li>
+
+					<li><a href="#flash"><img src="i/temp-img.png" alt="Flash.  Yes, Flash.  Get over it"></a></li>
+
+					<li><a href="#html5"><img src="i/temp-img.png" alt="HTML5 and beyond!"></a></li>
+
+				</ol>
+
+				
+
+			</div>
+			<div id="descriptions">
+
+			<div class="getStarted">
+
+				<a name="getStarted"><h2>Get Started!</h2></a>
+				<p>Download the ZDK, and then install it with one click.  No command-line wizardry required!</p>
+				<br>
+				<p>Once you have downloaded it, plug in your Kinect or Asus Xtion and run one of our sample applications.  Whether you are making a game, an interactive display, an art piece, or something the world has never seen before, using the ZDK you can hit the ground running and start using your creativity in minutes.</p>
+
+			</div>
+
+			<div class="consistentAPI">
+
+				<a name="consistentApi"><h2>Consistent API</h2></a>
+				<p>Whether on Mac or Windows, browser or native, Kinect SDK or OpenNI, the Zigfu API is identical.  Never worry again about how to marshal those pesky C++ objects into .NET or what order to put the bitmasks in for starting up the sensor correctly.  The busy-work is all handled for you behind the scenes in the ZDK, freeing you to spend your time where you should be: making your actual application.  We even calculate all the skeleton joint orientations for you if you use the Kinect SDK!</p>
+
+			</div>
+
+			<div class="performance">
+
+				<a name="performance"><h2>Performance</h2></a>
+				<p>We have ensured that even on low-end computers, all our software will run in real-time.  That means depth and image streams that do not skip frames, even in web browsers, and software that will not gobble your systems memory.</p>
+
+
+			</div>
+
+			<div class="anyPlatform">
+
+				<a name="anyPlatform"><h2>Any Platform You Like</h2></a>
+				<p>With the ZDK, you can create applications for Mac and PC.  On Windows, you have the option of using the new Microsoft Kinect SDK as the middleware, or you can use OpenNI and NITE, which work on both OS X and Windows.    You can also create apps using several different development environments, and we support both native and web applications.  Using the ZDK, your options are unlimited.</p>
+
+
+			</div>
+
+			<div class="kinectBrow">
+
+							<a name="kinectBrow"><h2>Kinect in the Browser</h2></a>
+				<p>For the first time, all the data from the Kinect or Asus Xtion is now available in the browser using the free Zigfu browser plugin, enabling you to create motion-controlled online games and web-apps.  The browser plugin is a free one-click install that works in all major browsers on Mac and Windows to make it as easy as possible for users to get to your content.  You can use Flash, Unity3D, or JavaScript and HTML5 to create your application.  The motion-controlled web is here!  </p>
+
+
+
+			</div>
+
+			<div class="unity3d">
+
+				<a name="unity3d"><h2>Unity3D</h2></a>
+				<p>Zigfu has supported motion app development in Unity3D for over a year now.  Our latest bindings for Unity include WebPlayer support (using the Zigfu browser plugin) and support for the Microsoft Kinect SDK.  We include several sample applications with our Unity package, so you can start development from one of several fully functional motion-controlled applications.</p>
+
+			</div>
+
+			<div class="flash">
+				
+				<a name="flash"><h2>Flash</h2></a>
+				<p>New in this version of the ZDK is support for Adobe Flash, both in the browser and in standalone applications.  Go ahead and make your app Flash-y ... sorry, bad joke, but it is good software!</p>
+
+			</div>
+
+			<div class="html5">
+				
+				<a name="html5"><h2>HTML5/JavaScript</h2></a>
+				<p>Make your website motion-controlled with just a few lines of JavaScript and HTML5! With full access to the image and depth streams and skeleton joint positions and orientations, you can now make your application web-based.  Even better, you can now be fully buzzword-compliant with your app: now you can have a location-based social media daily deals site that runs in the cloud with a natural user interface, to help leverage your community and user retention.  Pointy-haired bosses rejoice!</p>
+
+			</div>
+
+			</div>
+		</div>
+
+	</div>
+
+	<!--<div id="footer"><p>FOOTER</p></div>-->
+
+</div>
+
+</body>
+
+</html>
