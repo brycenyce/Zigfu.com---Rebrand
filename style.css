@@ -8,7 +8,8 @@ html, body, h1, h2, h3, h4, h5, h6, p {
 	padding: 0;
 }
 body {
-	
+	width: 100%;
+	height: 100%;
 }
 #wrapper {
 	width: 100%;
@@ -404,6 +405,30 @@ ol.thumb-grid li a img {
 	float: left;
 	//background-color: rgba(0,0,0,0.3);
 }
+#mainSplash {
+	
+}
+#htmlTut {
+	
+}
+#htmlTut h2 {
+	text-align: left;
+}
+#htmlTut a {
+	color: #498bc2;
+	text-decoration: none;
+}
+#htmlTut a:hover {
+	text-decoration: underline;
+}
+#docsCont {
+	
+}
+#innerCont {
+	
+}
+/* Begin Footer content */
+
 #footer {
 	width: 100%;
 	height: 200px;
